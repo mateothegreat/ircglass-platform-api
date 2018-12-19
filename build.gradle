@@ -1,0 +1,54 @@
+buildscript {
+
+    ext {
+
+        springBootVersion = '2.1.1.RELEASE'
+
+    }
+
+    repositories {
+
+        mavenCentral()
+
+    }
+
+    dependencies {
+
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+
+    }
+
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group 'ircglass'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web'
+//    compile group: 'org.springframework.boot', name: 'spring-boot-starter-security'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-amqp'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-websocket'
+    compile group: 'org.springframework.security', name: 'spring-security-messaging'
+
+    compile("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.9.4")
+
+    compile group: 'org.projectlombok', name: 'lombok', version: '1.18.0'
+
+    compile group: 'org.kitteh.irc', name: 'client-lib', version: '4.0.3'
+
+    testCompile group: 'org.testng', name: 'testng', version: '6.11'
+    testCompile group: 'org.assertj', name: 'assertj-core', version: '3.11.1'
+
+}
